@@ -18,21 +18,22 @@ A beautifully designed handcrafted jewelry ecommerce website inspired by romanti
 ---
 
 ## 🗂️ Folder Structure
-av1/
-├── Backend/ → Express.js + MongoDB backend
-│ └── src/
-│ ├── models/ → Mongoose schemas
-│ ├── routes/ → Product, Contact, Weekly APIs
-│ └── index.js → Entry point with Cloudinary, MongoDB, etc.
-├── Frontend/ → Complete responsive HTML, CSS, JS
-│ ├── index.html → Home Page
-│ ├── product.html → Single Product View
-│ ├── cart.html → Cart Page
-│ ├── checkout.html → Buy Now Page
-│ ├── admin.html → Admin Dashboard (Add/Delete Weekly Products)
-│ └── styles.css → Elegant, soft-styled theme
+enchanted-jewelry-store/
+├── Backend/    → Express.js + MongoDB backend
+│   └── src/
+│       ├── models/      → Mongoose schemas
+│       ├── routes/      → Product, Contact, Weekly APIs
+│       └── index.js     → Server entry point
+├── Frontend/   → Complete responsive HTML, CSS, JS
+│   ├── index.html       → Home Page
+│   ├── product.html     → Single Product View
+│   ├── cart.html        → Cart Page
+│   ├── checkout.html    → Buy Now Page
+│   ├── admin.html       → Admin Dashboard
+│   └── styles.css       → Elegant soft-themed UI
 ├── .gitignore
 └── Readme.md
+
 
 ---
 
@@ -66,8 +67,9 @@ av1/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/av1.git
-   cd av1/Backend
+    git clone https://github.com/YOUR_USERNAME/enchanted-jewelry-store.git
+    cd enchanted-jewelry-store/Backend
+
 2. **Install backend dependencies**
    ```bash
    npm install
@@ -83,6 +85,7 @@ CLOUDINARY_API_SECRET=your_api_secret
    ```bash
    npm run dev
 5.**Open the Frontend**
+
  Open Frontend/index.html in your browser
 
 
