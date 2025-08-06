@@ -1,172 +1,99 @@
-# 💍 Jewelry Ecommerce Backend – Day 2: Product API (Steps 1–5)
+# Enchanted Trinkets ✨
 
-This document outlines how to build the **Product API** for a Jewelry Ecommerce website using **Node.js**, **Express**, **MongoDB**, and **Cloudinary**.
+A beautifully designed handcrafted jewelry ecommerce website inspired by romantic aesthetics and soft elegance.
 
 ---
 
-## ✅ Prerequisites
+## 🌸 Features
 
-Before getting started, ensure you have the following setup:
+- 💍 Shop by Category — Rings, Necklaces, Earrings, Charms, Bracelets
+- 🧾 Add to Cart & Buy Now functionality
+- 🛍️ Weekly Featured Products — Admin controlled
+- 📦 Full Checkout Experience
+- 📬 Contact Form with attachment support
+- 💫 Elegant UI — Fonts: *Quicksand* + *Lavishly Yours*
+- 🛠️ Backend with Express.js + MongoDB
+- ☁️ Cloudinary for Image Hosting
 
-- **Node.js** & **npm** installed  
-- **MongoDB Atlas** account (with a connection URI)  
-- **Cloudinary** account (to host product images)  
-- A `.env` file in `Backend/` with the following contents:
+---
 
-```env
+## 🗂️ Folder Structure
+
+av1/
+├── Backend/ → Express.js + MongoDB backend
+│ └── src/
+│ ├── models/ → Mongoose schemas
+│ ├── routes/ → Product, Contact, Weekly APIs
+│ └── index.js → Entry point with Cloudinary, MongoDB, etc.
+├── Frontend/ → Complete responsive HTML, CSS, JS
+│ ├── index.html → Home Page
+│ ├── product.html → Single Product View
+│ ├── cart.html → Cart Page
+│ ├── checkout.html → Buy Now Page
+│ ├── admin.html → Admin Dashboard (Add/Delete Weekly Products)
+│ └── styles.css → Elegant, soft-styled theme
+├── .gitignore
+└── Readme.md
+
+yaml
+Copy
+Edit
+
+---
+
+## ⚙️ Tech Stack
+
+**Frontend**
+- HTML5 + CSS3
+- JavaScript (Vanilla)
+- Responsive Design
+
+**Backend**
+- Node.js + Express.js
+- MongoDB + Mongoose
+- dotenv
+- multer (for uploads)
+- Cloudinary (image hosting)
+
+---
+
+## 🔐 Admin Features
+
+- Add Weekly Products (Name, Price, Image Upload to Cloudinary)
+- Delete Weekly Products
+- Weekly section appears dynamically on homepage
+- No login page yet — for demo simplicity
+
+---
+
+## 🚀 How to Run Locally
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/av1.git
+   cd av1/Backend
+2.Install dependencies
+
+bash
+Copy
+Edit
+npm install
+3.Setup .env file
+
+ini
+Copy
+Edit
 PORT=8025
-MONGO_URI=your_mongodb_uri_here
+MONGODB_URI=your_mongodb_connection_string
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+4.Run backend server
 
-🔹 Step 1: Create Product Model
-📁 Location: Backend/src/models/product.model.js
+bash
+Copy
+Edit
+npm run dev
+5.Open Frontend
 
-Defines the structure and fields for each product stored in MongoDB.
-
-js
-Copy code
-import mongoose from "mongoose";
-
-const productSchema = new mongoose.Schema(
-  {
-    name: { type: String, required: true },
-    price: { type: Number, required: true },
-    description: { type: String },
-    category: { type: String },
-    images: [{ type: String }], // Array of Cloudinary image URLs
-    sizes: [{ type: String }],
-  },
-  { timestamps: true }
-);
-
-const Product = mongoose.model("Product", productSchema);
-export default Product;
-
-🔹 Step 2: Create Product Controller
-📁 Location: Backend/src/controllers/product.controller.js
-
-Handles logic for creating a new product.
-
-js
-Copy code
-import Product from "../models/product.model.js";
-
-export const createProduct = async (req, res) => {
-  try {
-    const product = await Product.create(req.body);
-    res.status(201).json({
-      message: "Product created successfully",
-      product,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Error creating product", error });
-  }
-};
-📝 Note: More handlers (like get, update, delete) will be added later.PORA CODE .IS KI FILE SE LE LI
-
-🔹 Step 3: Create Product Routes
-📁 Location: Backend/src/routes/product.routes.js
-
-Defines RESTful API endpoints and connects them to the controller.
-
-js
-Copy code
-import express from "express";
-import {
-  createProduct,
-  getAllProducts,
-  getSingleProduct,
-  updateProduct,
-  deleteProduct,
-} from "../controllers/product.controller.js";
-
-const router = express.Router();
-
-router.post("/", createProduct);
-router.get("/", getAllProducts);
-router.get("/:id", getSingleProduct);
-router.put("/:id", updateProduct);
-router.delete("/:id", deleteProduct);
-
-export default router;
-
-🔹 Step 4: Connect Routes in Main Server File
-📁 Location: Backend/src/index.js
-
-Registers the product routes with the Express server.
-
-js
-Copy code
-import express from "express";
-import dotenv from "dotenv";
-import cors from "cors";
-import connectDB from "./db/connectDB.js";
-import productRoutes from "./routes/product.routes.js";
-
-dotenv.config();
-connectDB();
-
-const app = express();
-const PORT = process.env.PORT || 8000;
-
-app.use(cors());
-app.use(express.json());
-
-// ✅ Register the Product API route
-app.use("/api/products", productRoutes);
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-🔹 Step 5: Test Product API with Postman
-🔧 Method: POST
-🌐 URL: http://localhost:8025/api/products
-🧾 Body: raw > JSON
-✅ Sample Request Body:
-json
-Copy code
-{
-  "name": "Letter",
-  "price": 500,
-  "description": "A beautifully crafted diamond necklace, perfect for weddings and parties.",
-  "category": "necklace",
-  "images": [
-    "https://res.cloudinary.com/dbaoyczba/image/upload/v1753613040/jewelry/jsluuufe91baq5mupi69.png",
-    "https://res.cloudinary.com/dbaoyczba/image/upload/v1753613040/jewelry/jsluuufe91baq5mupi69.png",
-    "https://res.cloudinary.com/dbaoyczba/image/upload/v1753613040/jewelry/jsluuufe91baq5mupi69.png"
-  ],
-  "sizes": ["16 inch", "18 inch"]
-}
-✅ Success Response:
-json
-Copy code
-{
-  "message": "Product created successfully",
-  "product": {
-    "_id": "...",
-    "name": "Letter",
-    "price": 500,
-    "description": "A beautifully crafted diamond necklace...",
-    "category": "necklace",
-    "images": [...],
-    "sizes": ["16 inch", "18 inch"],
-    "createdAt": "...",
-    "updatedAt": "..."
-  }
-}
-
-step 6:
-mera products.js wala page copy paste krna ab udr array khtm ho gai ha or fetch se data a rha ha .or us k bad cors intall hona chahye .or src me index.js me ye likhna "import cors from "cors";".us k bad product.controller.js me jana mera wala copy krna ude ye msla tha k pehly ma category ko req.files se read ni kr rhi thi.
-ab hopefully chal jana chahye:)
-
-step 7:
-mera product.js copy paste krna ha. us k bad na product.html me jana or ye krna:
-Replace this :
-<div class="thumbnails">
-  <img src="images/whimsiwing1.jpg" alt="Thumb 1" onclick="clickImageChange(this)">
-  <img src="images/whimsiwing2.jpg" alt="Thumb 2" onclick="clickImageChange(this)">
-  <img src="images/whimsiwing3.jpg" alt="Thumb 3" onclick="clickImageChange(this)">
-</div>
-To this:
-<div class="thumbnails" id="thumbnail-container"></div>
-
+Open Frontend/index.html in any browser
