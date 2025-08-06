@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+
+  <!-- ✅ Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&family=Qwitcher+Grypen:wght@400;700&family=Quicksand&display=swap"
+    rel="stylesheet" />
+
+  <!-- ✅ Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ✅ Custom CSS for Cart Page -->
+  <link rel="stylesheet" href="cart.css" />
+</head>
+
+<body>
+
+  <!-- ✅ Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Enchanted Trinkets</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#about-section">About me</a></li>
+      <li><a href="index.html#shop">Shop</a></li>
+      <li><a href="index.html#contact">Contact us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+    <!-- ✅ Search and Cart Icon -->
+    <div class="search">
+      <input type="text" id="search-input" class="search-prod" placeholder="🔍︎ Search Product" />
+      <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+    </div>
+  </nav>
+
+  <!-- ✅ Page Heading -->
+  <div class="Weekly-texts-necklace">
+    <h1>Cart</h1>
+  </div>
+
+  <!-- ✅ Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <a href="cart.html" class="step active"><i class="fas fa-shopping-cart"></i> Cart</a>
+    <span class="step-sep"><i class="fas fa-angle-right"></i></span>
+
+    <a href="#" class="step"><i class="fas fa-credit-card"></i> Checkout</a>
+    <span class="step-sep"><i class="fas fa-angle-right"></i></span>
+
+    <a href="#" class="step"><i class="fas fa-receipt"></i> Payment</a>
+  </div>
+
+  <!-- ✅ Main Cart Layout -->
+  <main class="cart-main">
+    <!-- 🛒 Cart Items Section -->
+    <section class="cart-items">
+
+      <!-- 🔰 Header: Title + Clear Cart Button -->
+      <div class="cart-items-header">
+        <h2>Cart (<span id="product-count">0</span> products)</h2>
+        <button class="clear-cart">Clear Cart</button>
+      </div>
+
+      <!-- 📦 Cart Table Container (Items will be rendered dynamically via JS) -->
+      <div class="cart-table">
+        <div class="cart-row cart-row-head">
+          <div class="product">Product</div>
+          <div class="details">Details</div>
+          <div class="quantity">Quantity</div>
+          <div class="price">Price</div>
+          <div></div>
+        </div>
+        <!-- ⚠️ Product rows will be injected here by JavaScript -->
+
+        <!-- Example Cart Item
+        <div class="cart-row">
+          <div class="cart-img"><img src="images/Whimsy Wings.png" alt="Whimsi Wings"></div>
+          <div class="cart-details">
+            <div class="cart-title"><a href="/product/whimsi-wings" class="product-link" target="_blank">Whimsi Wings</a></div>
+            <div class="cart-variant">Size: 18"</div>
+          </div>
+          <div class="cart-qty">
+            <button class="qty-btn">-</button>
+            <input type="number" value="1" min="1" max="10" readonly>
+            <button class="qty-btn">+</button>
+          </div>
+          <div class="cart-price">Rs. 500</div>
+          <div class="cart-remove" title="Remove" onclick="showRemoveToast(this)"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="cart-row">
+          <div class="cart-img"><img src="images/letter.png" alt="Letter"></div>
+          <div class="cart-details">
+            <div class="cart-title"><a href="/product/letter" class="product-link" target="_blank">Letter</a></div>
+            <div class="cart-variant">Size: 16"</div>
+          </div>
+          <div class="cart-qty">
+            <button class="qty-btn">-</button>
+            <input type="number" value="1" min="1" max="10" readonly>
+            <button class="qty-btn">+</button>
+          </div>
+          <div class="cart-price">Rs. 500</div>
+          <div class="cart-remove" title="Remove" onclick="showRemoveToast(this)"><i class="fas fa-times"></i></div>
+        </div> -->
+
+      </div>
+
+      <!-- 🔁 Continue Shopping / Checkout -->
+      <div class="cart-actions">
+        <a href="products.html" class="continue-shopping">
+          <i class="fas fa-arrow-left"></i> Continue Shopping
+        </a>
+
+        <button class="checkout-btn">Proceed to Checkout &rarr;</button>
+      </div>
+
+      <!-- ⚠️ Message shown when cart is empty -->
+      <div class="empty-cart-message" style="display:none; text-align:center; margin:2rem 0;">
+        <div style="font-size:3rem;"> 🥺</div>
+        <div style="font-size:1.2rem; margin-top:0.5rem;">Your cart is empty. Let's find something magical!</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ✅ Toast / Spinner (Optional Feedback Components) -->
+  <div id="toast" class="toast" style="display:none;">Removed from Cart</div>
+  <div id="spinner" class="spinner" style="display:none;"></div>
+
+
+
+  <!-- ✅ JavaScript File for Cart Logic -->
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jewelry Admin Panel</title>
+    <link rel="stylesheet" href="admin.css" />
+
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Jewelry Admin</h2>
+    <div class="nav-item active" data-section="dashboard">📊 Dashboard</div>
+    <div class="nav-item" data-section="products">📦 Products</div>
+    <div class="nav-item" data-section="orders">🛒 Orders</div>
+    <div class="nav-item" data-section="contacts">📨 Contacts</div>
+    <div class="nav-item" data-section="weekly-products">🗓️ Weekly Products</div>
+
+
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    
+    <!-- Dashboard -->
+    <div class="section active" id="dashboard">
+      <h1>Dashboard</h1>
+      <div class="cards">
+        <div class="card">
+          <h3>🛍️ Total Products</h3>
+          <p id="total-products">0</p>
+        </div>
+        <div class="card">
+          <h3>📦 Total Orders</h3>
+          <p>53</p>
+        </div>
+        <div class="card">
+          <h3>💰 Total Revenue</h3>
+          <p>₹45,000</p>
+        </div>
+        <div class="card">
+          <h3>🧍 Customers</h3>
+          <p>18</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products -->
+    <div class="section" id="products">
+      <h1>All Products</h1>
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Description</th>
+
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Products will be added here -->
+        </tbody>
+      </table>
+
+      <h2>Add New Product</h2>
+      <div id="product-form">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" id="title" />
+        </div>
+        <div class="form-group">
+  <label>Description</label>
+  <textarea id="description" rows="3"  placeholder="Enter product details"></textarea>
+</div>
+
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number" id="price" />
+        </div>
+         <div class="form-group">
+  <label>Original Price</label>
+  <input type="number" id="original-price" />
+</div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="category">
+            <option value="Ring">Rings</option>
+            <option value="Necklace">Necklace</option>
+            <option value="Earring">Earrings</option>
+            <option value="Charm">Charm</option>
+            <option value="Bracelet">Bracelet</option>
+
+          </select>
+        </div>
+        <div class="form-group">
+  <label>Select Image</label>
+  <input type="file" id="imageFile" accept="image/*" multiple/>
+</div>
+ <div class="form-group">
+          <label>Size</label>
+          <select id="size" multiple>
+            <option value="16">16</option>
+            <option value="18">18</option>
+            <option value="20">20</option>
+             <option value="22">22</option>
+             <option value="24">24</option>
+          </select>
+        </div>
+<button onclick="addProductToDB()">Add Product</button>
+      </div>
+    </div>
+
+   <!-- Orders -->
+    <div class="section" id="orders">
+      <h1>Customer Orders</h1>
+
+      <!-- ✅ Filter Toolbar -->
+      <!-- ✅ Filter Toolbar -->
+      <div class="toolbar">
+        <label for="status-filter"><strong>Filter by status:</strong></label>
+        <select id="status-filter" onchange="fetchOrders(this.value)">
+          <option value="">All</option>
+          <option value="Pending">Pending</option>
+          <option value="Shipped">Shipped</option>
+        </select>
+      </div>
+
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Total</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th style="min-width:140px;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="orders-body">
+          <!-- Orders will be dynamically added here -->
+        </tbody>
+      </table>
+
+      <!-- Order Details Section -->
+      <div id="order-details" class="order-details" style="display: none;">
+        <h3>Order Details</h3>
+        <p id="shipping-info"></p>
+        <ul id="items-list"></ul>
+        <button id="mark-shipped-btn" class="btn success" style="display: none;">Mark as Shipped</button>
+      </div>
+    </div>
+   <div class="section" id="contacts">
+  <h1>Contact Submissions</h1>
+  <table id="contact-table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Interest</th>
+        <th>Message</th>
+        <th>Attachment</th>
+              <th>Delete</th> <!-- 👈 ADD THIS LINE -->
+
+        
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+<div class="section" id="weekly-products">
+  <h1>Weekly Products</h1>
+  <table id="weekly-product-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Products will be added dynamically here -->
+    </tbody>
+  </table>
+  <h2>Add Weekly Product</h2>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" id="weekly-name" />
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="number" id="weekly-price" />
+  </div>
+  <div class="form-group">
+    <label>Image URL</label>
+<input type="file" id="weekly-image" accept="image/*" />
+  </div>
+  <button onclick="addWeeklyProduct()">Add Weekly Product</button>
+</div>
+
+
+  </div>
+
+
+ <script src="admin.js"></script>
+
+</body>
+</html>

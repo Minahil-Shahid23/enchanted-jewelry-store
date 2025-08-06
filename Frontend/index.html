@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enchanted Trinkets</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ✅ Google Fonts: Classy & clean combo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&family=Qwitcher+Grypen:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+
+</head>
+
+<body>
+  <nav class="navbar">
+    
+    <div class="logo">Enchanted Trinkets</div>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about-section">About me</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#contact">Contact us</a></li>
+
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+    <div class="search">
+      <input type="text" id="search-input" class="search-prod" placeholder="🔍︎ Search Product" />
+<ul id="suggestions-list"></ul>
+
+      <div class="cart-icon">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
+
+    </div>
+
+  </nav>
+
+   
+  
+  <section id="hero">
+    <div class="hero">
+      <h1>Step into a world of timeless elegance — handcrafted jewelry for the romantic soul.</h1>
+      <p>Enchanted pieces for your everyday fairytale.</p>
+    </div>
+
+
+  </section>
+
+  <div class="about" id="about-section">
+    <div class="about-text">
+      <h1>About Me</h1>
+      <p>
+        Hi, I’m Maryyam, a 20-year-old computer science student who’s deeply enchanted by tiny sparkly things.
+        Enchanted Trinkets is my little corner of the world where tech meets handmade magic. Every piece I create blends
+        soft elegance with intentional design — inspired by nature, whimsy, and all things romantic.
+        Thank you for being part of my fairytale.
+      </p>
+    </div>
+
+    <div class="polaroid-stack">
+      <img src="images/firstpola.jpg" alt="Jewelry 1" class="photo rotate-left">
+      <img src="images/thirdpola.jpg" alt="Jewelry 3" class="photo rotate-right">
+      <img src="images/secondpola.jpg" alt="Jewelry 2" class="photo center-photo">
+
+    </div>
+  </div>
+
+
+  <!--------------------SH0P----------------------->
+  <div class="container" id="shop">
+    <h1 class="heading">Shop by category</h1>
+    <div class="services">
+      <div class="service-outer card1-outer">
+        <div class="service-title">  <a href="products.html?category=Ring">Ring</a>
+</div>
+        <div class="service-card">
+          <img src="images/ring.jpg" alt="Service One">
+          <div class="overlay">
+            <p><a href="products.html?category=Ring">Pick Your Sparkle</a></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="service-outer card2-outer">
+        <div class="service-title"><a href="products.html?category=Earring">Earring</a>
+ </div>
+        <div class="service-card c1">
+          <img src="images/earring.jpg" alt="Service Two">
+          <div class="overlay">
+            <p><a href="products.html?category=Earring"> Pick Your Sparkle</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="service-outer card3-outer">
+        <div class="service-title"> <a href="products.html?category=Necklace">Necklace</a></div>
+        <div class="service-card">
+          <img src="images/hearts.png" alt="Service Three">
+          <div class="overlay">
+            <p> <a href="products.html?category=Necklace"> Pick Your Sparkle</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-outer card4-outer">
+        <div class="service-title"><a href="products.html?category=Bracelet">Bracelet</a>
+</div>
+        <div class="service-card">
+          <img src="images/bracelet.jpg" alt="Service Three">
+          <div class="overlay">
+            <p><a href="products.html?category=Bracelet"> Pick Your Sparkle</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-outer card5-outer">
+        <div class="service-title"><a href="products.html?category=Charm">Charm</a>
+</div>
+        <div class="service-card">
+          <img src="images/charms.jpg" alt="Service Three">
+          <div class="overlay">
+            <p><a href="products.html?category=Charm"> Pick Your Sparkle</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="Weekly-text">
+    <h1>Weekly Lineup</h1>
+
+  </div>
+
+
+  <div class="weekly-products" id="weekly-products-container">
+  <!-- Products will be loaded here via JavaScript -->
+</div>
+
+
+
+
+  <!--FEEDBACK SECTION-->
+  <div class="feedback-section">
+    <h2 class="feedback-heading">What Our Customers Say</h2>
+    <div class="feedback-cards">
+      <div class="feedback-card">
+        <div class="feedback-bg-shape"></div>
+        <img class="feedback-avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+        <h3 class="feedback-name">Minahil shahid</h3>
+        <p class="feedback-role">Most beautiful customer in the world</p>
+        <p class="feedback-text">"Absolutely loved the jewelry! The quality and design are amazing."</p>
+      </div>
+      <div class="feedback-card">
+        <div class="feedback-bg-shape"></div>
+        <img class="feedback-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer 2">
+        <h3 class="feedback-name">Meryem tanvir</h3>
+        <p class="feedback-role">Happy Customer</p>
+        <p class="feedback-text">"Fast delivery and beautiful packaging. Highly recommended!"</p>
+      </div>
+      <div class="feedback-card">
+        <div class="feedback-bg-shape"></div>
+        <img class="feedback-avatar" src="https://randomuser.me/api/portraits/men/65.jpg" alt="Customer 3">
+        <h3 class="feedback-name">Fatima Mirza</h3>
+        <p class="feedback-role">Returning Client</p>
+        <p class="feedback-text">"I always shop here for gifts. The service is top-notch!"</p>
+      </div>
+    </div>
+  </div>
+
+  <!---------------Contact-------------------------------------------------------->
+
+  <div class="Contact-text" id="contact">
+    <h1>Talk to Us About Your Dream Jewelry
+
+    </h1>
+
+  </div>
+
+  <div class="split-container">
+    <!-- Left Branding/Invitation -->
+
+    <div class="left-info">
+      <div class="branding">
+        <div class="subtitle">We are here to help you to shine</div>
+        <h1>Let’s Talk About Your <span class="highlight">Jewelry</span> Needs</h1>
+        <p class="desc">Are you looking for a custom piece, repair service, or consultation?<br>Reach out—we’d love to
+          assist you.</p>
+        <div class="contact-details">
+          <div class="contact-row"><span class="icon">📧</span> <span>Email</span><br><span
+              class="contact-value">maryyamtanveer485@gmail.com</span></div>
+          <!-- <div class="contact-row"><span class="icon">📞</span> <span>Phone</span><br><span class="contact-value">+92
+              3XX-XXXXXXX</span></div> -->
+        </div>
+      </div>
+    </div>
+    <!-- Right Contact Form -->
+    <div class="right-form">
+      <form class="contact-form" enctype="multipart/form-data">
+        <h2>Contact Us</h2>
+        <div class="form-group">
+          <label for="fullname"  class="field name">Full Name<span class="required">*</span></label>
+          <input type="text" id="fullname" name="fullname" required>
+          <div class="error"></div>
+        </div>
+        <div class="form-group">
+          <label for="email"  class="field email">Email Address<span class="required">*</span></label>
+          <input type="email" id="email" name="email" required>
+          <div class="error"></div>
+        </div>
+        <!-- <div class="form-group">
+          <label for="phone"  class="field phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Optional">
+          <div class="error"></div>
+        </div> -->
+        <div class="form-group">
+          <label for="interest">Interested In<span class="required">*</span></label>
+          <select id="interest" name="interest" required>
+            <option value="">Select</option>
+            <option value="Custom Jewelry">Custom Jewelry</option>
+            <option value="Repair">Repair</option>
+
+
+          </select>
+          <div class="error"></div>
+        </div>
+        <div class="form-group">
+          <label for="attachment">Attachment</label>
+          <input type="file" id="attachment" name="attachment" accept="image/*,application/pdf">
+        </div>
+        <div class="form-group">
+          <label for="message">Message<span class="required">*</span></label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us what you're looking for..."
+            required></textarea>
+            <div class="error"></div>
+        </div>
+        <button type="submit" class="submit-btn"> Get in Touch</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>Enchanted Trinkets</h3>
+      <p>
+        Step into a world of timeless elegance — handcrafted jewelry for the
+        romantic soul.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li><a href="mailto:maryyamtanveer485@gmail.com">maryyamtanveer485@gmail.com</a></li>
+        <li><a href="mailto:minahilsh3@gmail.com">minahilsh3@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Handle With Care</a></li>
+
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/enchantedd_trinketss" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.pinterest.com/maryyamsheikh115/" target="_blank"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.tiktok.com/@enchantedd_trinketss/" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p>© 2025 Enchanted Trinkets. All rights reserved</p>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+    <script src="products.js"></script>
+    
+
+
+
+</body>
+
+</html>

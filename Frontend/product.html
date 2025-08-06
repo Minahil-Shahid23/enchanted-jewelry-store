@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product</title>
+
+  <!-- ✅ Google Fonts: Classy s& clean combo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&family=Qwitcher+Grypen:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #d4af37;
+      --accent: #f7f7f7;
+      --dark: #222;
+      --gray: #888;
+      --border: #eee;
+      --star: #ffd700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ✅ Base font setup */
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #f5f0e1;
+      /* Soft cream tone */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    /* ✅ Navbar styling */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+      /* //When two values are specified, the first padding applies to the top and bottom, the second to the left and right. */
+      background-color: #f5f0e1;
+      /* Light soft beige */
+    }
+
+    .navbar {
+
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Lavishly Yours', cursive;
+      font-size: 40px;
+      /* increase to make it feel fancy */
+      color: #4F5D2F;
+      /* dark sage green */
+    }
+
+
+    /* ✅ Nav links */
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-family: "Qwitcher Grypen", cursive;
+      font-weight: 700;
+      font-style: normal;
+      font-size: x-large;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #7b9d5c;
+      /* Soft green hover */
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* ✅ Search box */
+    .search-prod {
+      font-family: 'Quicksand', sans-serif;
+      background-color: #a3b18a;
+      color: white;
+      padding: 10px 30px;
+      border-radius: 20px;
+      font-weight: 500;
+      border: none;
+      outline: none;
+      cursor: text;
+      /* ✅ Correct for input */
+      transition: background-color 0.3s ease;
+      width: 200px;
+    }
+
+    .search-prod::placeholder {
+      color: white;
+      opacity: 0.8;
+    }
+
+    .cart-icon {
+      position: relative;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+
+      color: #333;
+      font-size: 12px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 18px;
+      font-weight: bold;
+    }
+
+    .mini-cart-popup {
+      position: fixed;
+      top: 100px;
+      right: -350px;
+      width: 280px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 12px 0 0 12px;
+      transition: right 0.4s ease;
+      z-index: 9999;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .mini-cart-popup.show {
+      right: 20px;
+    }
+
+    .mini-cart-close {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 20px;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .mini-cart-heading {
+      font-size: 16px;
+      color: #2f2f2f;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .mini-cart-details {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+
+    .mini-cart-details img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .mini-cart-text p {
+      margin: 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .mini-cart-buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .mini-btn {
+      flex: 1;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 13px;
+      border-radius: 6px;
+      border: 1px solid #b4c2aa;
+      color: #4e614b;
+      text-decoration: none;
+      transition: 0.3s;
+      background-color: #f9f9f9;
+    }
+
+    .mini-btn:hover {
+      background-color: #e9f0e4;
+    }
+
+    .mini-btn.primary {
+      background-color: #4e614b;
+      color: #fff;
+      border: none;
+    }
+
+    .mini-btn.primary:hover {
+      background-color: #3c4e3a;
+    }
+
+
+    .Weekly-texts-necklace {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: "Qwitcher Grypen", cursive;
+      font-weight: 700;
+      font-size: 24px;
+      color: #4F5D2F;
+      /* center it horizontally */
+      background-color: #a3b18a;
+      ;
+    }
+
+
+    .breadcrumb {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14px;
+      color: #555;
+      margin: 20px;
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: #4F5D2F;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .breadcrumb a:hover {
+      color: #000;
+    }
+
+    .breadcrumb span {
+      color: #aaa;
+    }
+
+    /* main section */
+
+    .main-product {
+      display: flex;
+      gap: 2.5rem;
+      padding: 2rem;
+      flex-wrap: wrap;
+      background: #F9F6EE;
+    }
+
+    .product-images {
+      flex: 1 1 350px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .main-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      /* preserve natural height */
+      object-fit: contain;
+      /* show full image without cropping */
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0001;
+      transition: transform 0.2s;
+      cursor: zoom-in;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .main-img:hover {
+      transform: scale(1.04);
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .thumbnails img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: border 0.2s;
+    }
+
+    .thumbnails img:hover {
+      border: 2px solid var(--primary);
+    }
+
+    .product-info {
+      flex: 1 1 350px;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .product-title {
+      font-size: 4rem;
+      font-weight: 600;
+      font-family: "Qwitcher Grypen", cursive;
+    }
+
+    .star-rating {
+      color: #4F5D2F;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #4F5D2F;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: var(--gray);
+      font-size: 1rem;
+      margin-left: 0.7rem;
+      font-weight: 400;
+    }
+
+    .short-desc {
+      color: var(--gray);
+    }
+
+    .variants,
+    .quantity,
+    .actions,
+    .trust-badges,
+    .social-share {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .variants select,
+    .quantity input {
+      padding: 0.4rem 0.7rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .quantity input {
+      width: 50px;
+      text-align: center;
+    }
+
+    .actions button {
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .add-cart {
+      background: #4F5D2F;
+      color: #fff;
+    }
+
+    .buy-now {
+      background: var(--dark);
+      color: #fff;
+      animation: shakeJhatka 2s infinite;
+      transform-origin: center;
+    }
+
+    /* Jhatka-style sharp shake */
+    @keyframes shakeJhatka {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      1% {
+        transform: translate(-3px, 0);
+      }
+
+      2% {
+        transform: translate(3px, 0);
+      }
+
+      3% {
+        transform: translate(-3px, 0);
+      }
+
+      4% {
+        transform: translate(3px, 0);
+      }
+
+      5% {
+        transform: translate(-2px, 0);
+      }
+
+      6% {
+        transform: translate(2px, 0);
+      }
+
+      7% {
+        transform: translate(0, 0);
+      }
+    }
+
+
+    .actions button:hover {
+      opacity: 0.9;
+    }
+
+    .trust-badges span {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.95rem;
+      color: #4F5D2F;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .social-share a {
+      font-size: 1.3rem;
+      color: var(--gray);
+      margin-right: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .social-share a:hover {
+      color: var(--primary);
+    }
+
+
+    .tabs-section {
+      margin: 2rem 2rem 0;
+      background: #F9F6EE;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.2rem;
+    }
+
+    .tab {
+      padding-bottom: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--gray);
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border 0.2s;
+    }
+
+    .tab.active {
+      color: #4F5D2F;
+      border-bottom: 2px solid #4F5D2F;
+    }
+
+    .tab-content {
+      font-size: 1rem;
+      color: var(--dark);
+    }
+
+    .related-section {
+      margin: 2rem 2rem 0;
+      padding: 2rem 0;
+    }
+
+    .related-title {
+      font-size: 4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: "Qwitcher Grypen", cursive;
+      text-align: center;
+      color: #4F5D2F;
+    }
+
+    .related-products {
+      margin-top: 30px;
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .related-card {
+      width: 200px;
+      background: #F9F6EE;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 1rem;
+      text-align: center;
+      flex: 0 0 auto;
+    }
+
+    .related-card img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 0.7rem;
+    }
+
+    .related-card .name {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .related-card .price {
+      color: #4F5D2F;
+      font-weight: 600;
+    }
+
+    .related-card button {
+      margin-top: 0.5rem;
+      background: #4F5D2F;
+      color: #fff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    .related-card .price del {
+      font-size: 0.85rem;
+      color: #888;
+      margin-right: 6px;
+      text-decoration: line-through;
+      display: inline-block;
+    }
+
+    .related-card .price strong {
+      font-size: 0.95rem;
+      color: #e53935;
+      font-weight: 700;
+    }
+
+    .trust-faq-section {
+      margin: 2rem 2rem 0;
+      background: #F9F6EE;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2rem;
+    }
+
+    .trust-why {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .trust-why span {
+      background: #faf9f6;
+      border-radius: 5px;
+      padding: 0.7rem 1.2rem;
+      color: #4F5D2F;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .faq {
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      cursor: pointer;
+      color: #4F5D2F;
+    }
+
+    .faq-a {
+      color: var(--gray);
+      margin-top: 0.3rem;
+      margin-left: 1rem;
+    }
+
+    footer {
+      background-color: #4F5D2F;
+      background-image: url("images/footer-img.jpg");
+      background-size: cover;
+      background-position: top center;
+
+      margin-top: 87px;
+      display: flex;
+      flex-wrap: wrap;
+      /* ✅ allow wrap for responsiveness */
+      justify-content: space-around;
+      align-items: flex-start;
+      padding: 56px 40px;
+      color: #fff;
+    }
+
+    .footer-section {
+      flex: 1 1 200px;
+      /* responsive sizing */
+      margin: 20px;
+    }
+
+    .footer-section h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      font-family: 'Lavishly Yours', cursive;
+      color: #4F5D2F;
+      ;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .footer-section a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-section a:hover {
+      text-decoration: underline;
+      color: #a3b18a;
+    }
+
+    .social-icons a {
+      font-size: 20px;
+      margin-right: 15px;
+      color: #4F5D2F;
+
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #fff;
+    }
+
+    .copyright {
+      flex-basis: 100%;
+      /* ✅ Take full width */
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: white;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .main-product {
+        flex-direction: column;
+      }
+
+      .product-images,
+      .product-info {
+        min-width: 0;
+        text-align: center;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 786px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .search {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .cart-icon {
+        font-size: 24px;
+      }
+
+      .search-prod {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+
+      .logo {
+        font-size: 32px;
+      }
+
+      .main-product {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 1.2rem;
+      }
+
+      .product-images,
+      .product-info {
+        min-width: 0;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+      }
+
+      .main-img {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .thumbnails {
+        justify-content: center;
+      }
+
+      .product-title,
+      .related-title {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+
+      .tabs-section,
+      .reviews-section,
+      .trust-faq-section {
+        padding: 1rem;
+      }
+
+      .related-section {
+        padding: 1rem 0;
+      }
+
+      .related-products .price {
+        font-size: 1rem;
+      }
+
+      .trust-why {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 24px;
+      }
+
+      .nav-links {
+        font-size: 1rem;
+        gap: 8px;
+      }
+
+      .main-product {
+        gap: 0.7rem;
+      }
+
+      .product-title,
+      .related-title {
+        font-size: 1.5rem;
+      }
+
+      .tabs {
+        gap: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .tab-content {
+        font-size: 0.95rem;
+      }
+
+      .related-products {
+        gap: 0.7rem;
+      }
+
+      .related-card {
+        width: 140px;
+        padding: 0.5rem;
+      }
+
+      .related-card img {
+        border-radius: 4px;
+      }
+
+    }
+
+    @media (max-width: 400px) {
+      nav {
+        padding: 10px 2px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .main-product,
+      .tabs-section,
+      .related-section,
+      .trust-faq-section,
+      footer {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+      }
+
+      .product-title,
+      .related-title {
+        font-size: 1.1rem;
+      }
+
+      .tab {
+        font-size: 0.8rem;
+      }
+
+    }
+  </style>
+  <!-- For icons, using Font Awesome CDN (for demo) -->
+  <script src="https://kit.fontawesome.com/4e7b5c1e7a.js" crossorigin="anonymous"></script>
+</head>
+
+
+
+
+
+
+<body>
+  <!-- Header / Navigation -->
+  <nav class="navbar">
+    <div class="logo">Enchanted Trinkets</div>
+
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#about-section">About me</a></li>
+      <li><a href="index.html#shop">Shop</a></li>
+      <li><a href="index.html#contact">Contact us</a></li>
+
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+
+    <div class="search">
+      <input type="text" id="search-input" class="search-prod" placeholder="🔍︎ Search Product" />
+
+      <div class="cart-icon">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
+
+    </div>
+
+  </nav>
+  <!-- 🌟 Mini Cart Slide Panel -->
+  <div class="mini-cart-popup" id="miniCartPopup">
+    <span class="mini-cart-close" onclick="closeMiniCart()">×</span>
+    <h4 class="mini-cart-heading">Item Added to Cart</h4>
+
+    <div class="mini-cart-details">
+      <img id="mini-cart-image" src="" alt="Product Image" />
+      <div class="mini-cart-text">
+        <p id="mini-cart-name">Product Name</p>
+        <p id="mini-cart-price">Rs. 0</p>
+      </div>
+    </div>
+
+    <div class="mini-cart-buttons">
+      <a href="cart.html" class="mini-btn">View Cart</a>
+      <a href="checkout.html" class="mini-btn primary">Checkout</a>
+    </div>
+  </div>
+
+  <div class="Weekly-texts-necklace">
+    <h1 id="product-main-heading">Whimsi Wings</h1>
+
+  </div>
+  <!-- Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <a href="index.html">🏠︎ Home</a>
+    <span>/</span>
+    <a href="products.html?category=necklace" id="breadcrum-category">Necklace</a> /
+    <a id="breadcrum">Whimsi Wings</a>
+  </div>
+
+  <!-- Main Product Section -->
+  <section class="main-product">
+    <!-- Left: Product Images -->
+    <div class="product-images">
+      <img src="images/Whimsy Wings.png" alt="Gold Plated Heart Necklace" class="main-img" id="product-img">
+      <div class="thumbnails" id="thumbnail-container">
+        <!-- "When this element (i.e., the <img> thumbnail) is clicked, run the clickImageChange() function and pass this element into it as an argument." -->
+        <!-- <img src="images/whimsiwing1.jpg"  alt="Thumb 1" onclick="clickImageChange(this)">
+        <img src="images/whimsiwing2.jpg"  alt="Thumb 2" onclick="clickImageChange(this)">
+        <img src="images/whimsiwing3.jpg" alt="Thumb 3" onclick="clickImageChange(this)"> -->
+      </div>
+    </div>
+
+
+    <!-- Right: Product Info -->
+    <div class="product-info">
+      <div class="product-title" id="product-title">Whimsi Wings</div>
+      <!-- <div class="star-rating">
+        <span>⭐⭐⭐⭐☆</span>
+        <span>4.8/5</span>
+      </div> -->
+
+      <div>
+        <span id="product-price" style="font-weight: bold; color: green;">Rs. 500</span>
+        <del id="old-price" style="color: gray; margin-left: 10px;">Rs. 600</del>
+      </div>
+
+
+      <div class="short-desc product-description" id="product-description">Elegant handmade piece, perfect for gifting
+        and daily wear. Hypoallergenic and tarnish-resistant.</div>
+      <div class="variants">
+        <label for="size">Size:</label>
+        <select id="size">
+          <option>16"</option>
+          <option selected>18"</option>
+          <option>20"</option>
+        </select>
+
+      </div>
+      <div class="quantity">
+        <label for="qty">Qty:</label>
+        <input type="number" id="qty" value="1" min="1" max="10">
+      </div>
+      <div class="actions">
+        <button class="add-cart" id="add-to-cart-btn"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        <button class="buy-now">Buy Now</button>
+      </div>
+      <!-- <div class="trust-badges">
+        <span><i class="fas fa-certificate"></i> 100% Genuine</span>
+        <span><i class="fas fa-undo"></i> 7-Day Return</span>
+      </div> -->
+      <div class="social-share">
+        <a href="#" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" title="Share on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" title="Share on Pinterest"><i class="fab fa-pinterest"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Product Info Tabs/Section -->
+  <section class="tabs-section">
+    <div class="tabs">
+      <div class="tab active">Shipping & Returns</div>
+      <div class="tab">Care Instructions</div>
+    </div>
+    <div class="tab-content">
+      <ul>
+        <li>Delivery time: 3–5 working days</li>
+        <li>Return policy: 7-day easy return</li>
+      </ul>
+
+      <div style="display:none;">
+        <ul>
+          <li>Avoid water/perfume, store in dry pouch</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Suggested/Related Products Section -->
+  <section class="related-section" id="related-section">
+    <div class="related-title">You May Also Like</div>
+    <div class="related-products">
+      <div class="related-card">
+        <img src="images/viva la vida.png" alt="Product 1">
+        <div class="name">Viva La Vida</div>
+        <div class="price">Rs. 600</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="related-card">
+        <img src="images/letter.png" alt="Product 2">
+        <div class="name">Letter</div>
+        <div class="price">Rs. 500</div>
+        <button>Add to Cart</button>
+      </div>
+      <div class="related-card">
+        <img src="images/strawberry-shortcake.png">
+        <div class="name">Strawberry Shortcake</div>
+        <div class="price">Rs. 650</div>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Trust & FAQ Section -->
+  <section class="trust-faq-section">
+    <div class="trust-why">
+      <span><i class="fas fa-hand-sparkles"></i> Handmade Jewelry</span>
+
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">How do I measure necklace length?</div>
+        <div class="faq-a">Use a string to measure around your neck, then measure the string with a ruler to find your
+          ideal length.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I return custom jewelry?</div>
+        <div class="faq-a">Custom jewelry is not eligible for return unless there is a manufacturing defect.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-section">
+      <h3>Enchanted Trinkets</h3>
+      <p>
+        Step into a world of timeless elegance — handcrafted jewelry for the
+        romantic soul.
+      </p>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li><a href="mailto:maryyamtanveer485@gmail.com">maryyamtanveer485@gmail.com</a></li>
+        <li><a href="mailto:minahilsh3@gmail.com">minahilsh3@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Handle With Care</a></li>
+
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/enchantedd_trinketss" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.pinterest.com/maryyamsheikh115/" target="_blank"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.tiktok.com/@enchantedd_trinketss/" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+    </div>
+    <div class="copyright">
+      <p>© 2025 Enchanted Trinkets. All rights reserved</p>
+    </div>
+  </footer>
+  <!-- sb se pehly important information ko id di ha -->
+  <!-- products.js = jahan tumhara product array bana hua hai -->
+  <script src="products.js"></script>
+  <!-- product.js = ye new file tum banayogi jo id se product dhoondh kar page pe inject karegi -->
+  <script src="product.js"></script>
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>

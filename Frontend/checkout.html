@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout - Enchanted Trinkets</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&family=Qwitcher+Grypen:wght@400;700&family=Quicksand&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="checkout.css" />
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Enchanted Trinkets</div>
+    <ul class="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="index.html#about-section">About me</a></li>
+      <li><a href="index.html#shop">Shop</a></li>
+      <li><a href="index.html#contact">Contact us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+    <div class="search">
+      <input type="text" id="search-input" class="search-prod" placeholder="🔍︎ Search Product" />
+      <div class="cart-icon">🛒<span class="cart-count">0</span></div>
+    </div>
+  </nav>
+
+  <div class="Weekly-texts-necklace">
+    <h1>Checkout</h1>
+  </div>
+
+  <div class="breadcrumb">
+    <a href="cart.html" class="step active"><i class="fas fa-shopping-cart"></i> Cart</a>
+    <span class="step-sep"><i class="fas fa-angle-right"></i></span>
+    <a href="#" class="step"><i class="fas fa-credit-card"></i> Checkout</a>
+    <span class="step-sep"><i class="fas fa-angle-right"></i></span>
+    <a href="#" class="step"><i class="fas fa-receipt"></i> Payment</a>
+  </div>
+
+  <div class="checkout-container">
+    <!-- LEFT SIDE: Checkout Form -->
+    <div class="checkout-form">
+      <h2>Checkout</h2>
+
+      <h3>Contact Information</h3>
+      <p class="subtext">Please enter this to receive info about your order.</p>
+      <form id="checkout-form">
+  <div class="form-group">
+    <input type="email" class="field email" placeholder="Email address" required />
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group name-group">
+    <div>
+      <input type="text" class="field first" placeholder="First name" required />
+      <div class="error"></div>
+    </div>
+    <div>
+      <input type="text" class="field last" placeholder="Last name" required />
+      <div class="error"></div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <select class="field country" required>
+      <option value="">Country / Region</option>
+      <option value="pakistan" selected>Pakistan</option>
+    </select>
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group">
+    <select class="field shipping" id="shipping-method" required>
+      <option value="">Select Shipping Method</option>
+      <option value="200">Standard - Rs. 200</option>
+      <option value="400">Express - Rs. 400</option>
+    </select>
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="field address" placeholder="Street address" required />
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group state-zip">
+    <input type="text" class="field city" placeholder="City" required />
+    <div class="error"></div>
+    <input type="text" class="field state" placeholder="State / Province" required />
+    <div class="error"></div>
+    <input type="text" class="field zip" placeholder="Postcode / ZIP" required />
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="field phone" placeholder="Phone" />
+    <div class="error"></div>
+  </div>
+
+  <div class="form-group">
+    <label class="terms">
+      <input type="checkbox" class="field checkbox" required />
+      I agree to your <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.
+    </label>
+    <div class="error"></div>
+  </div>
+
+</form>
+
+
+      <div class="checkout-actions">
+        <button class="pay-now place-order-btn">Place Order</button>
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- RIGHT SIDE: Cart Summary -->
+    <div class="cart-summary">
+      <h3>Review your cart</h3>
+
+      <!-- 
+      <div class="cart-item">
+        <img src="images/blue-shines.png" alt="Service Three">
+        <div>
+          <p>DuoComfort Sofa Premium</p>
+          <span>$20.00</span>
+        </div>
+      </div>
+
+      <div class="cart-item">
+        <img src="images/bagcharm.png" alt="Service Three">
+        <div>
+          <p>IronOne Desk</p>
+          <span>$25.00</span>
+        </div>
+      </div>
+      -->
+
+      <div class="discount-code">
+        <input type="text" placeholder="Discount code" />
+        <button>Apply</button>
+      </div>
+
+      <div class="price-summary">
+        <p>Subtotal: <span>$45.00</span></p>
+        <p>Shipping: <span>$5.00</span></p>
+        <p>Discount: <span>-$10.00</span></p>
+        <h4>Total: <span>$40.00</span></h4>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <script src="checkout.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

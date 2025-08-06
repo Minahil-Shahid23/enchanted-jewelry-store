@@ -1,0 +1,413 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f5f0e1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  background-color: #f5f0e1;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Lavishly Yours', cursive;
+  font-size: 40px;
+  color: #4F5D2F;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  font-family: "Qwitcher Grypen", cursive;
+  font-weight: 700;
+  font-size: x-large;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #7b9d5c;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-prod {
+  background-color: #a3b18a;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: text;
+  width: 200px;
+}
+
+.search-prod::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+.cart-icon {
+  position: relative;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  color: #333;
+  font-size: 12px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 18px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Checkout Container */
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+}
+
+.checkout-form {
+  flex: 1 1 55%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Tight spacing between fields */
+}
+
+.checkout-form h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.checkout-form h3 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+}
+
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 0; /* Removed bottom margin */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Small space between label & input */
+}
+
+.name-group {
+  display: flex;
+  gap: 10px;
+}
+
+.name-group > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.state-zip {
+  display: flex;
+  gap: 10px;
+}
+
+.state-zip input {
+  flex: 1;
+}
+
+/* Terms */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.terms input[type="checkbox"] {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  position: relative;
+  cursor: pointer;
+}
+
+.terms input[type="checkbox"]:checked {
+  background-color: #a3b18a;
+}
+
+.terms input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.terms input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+.terms a {
+  color: #4F5D2F;
+  text-decoration: underline;
+}
+
+/* Error Messages */
+.error {
+  color: red;
+  font-size: 12px;
+  min-height: 1em;
+}
+
+/* Actions */
+.checkout-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pay-now {
+  margin-top: 15px;
+  background-color: #a3b18a;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pay-now:hover {
+  background-color: #4F5D2F;
+}
+
+/* Cart Summary (unchanged mostly) */
+.cart-summary {
+  flex: 1 1 40%;
+  min-width: 280px;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Discount */
+.discount-code {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.discount-code input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.discount-code button {
+  background-color: #d3d3f3;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.price-summary {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.price-summary p,
+.price-summary h4 {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+/* Breadcrumb + Title Styling */
+.Weekly-texts-necklace {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: "Qwitcher Grypen", cursive;
+  font-weight: 700;
+  font-size: 24px;
+  color: #4F5D2F;
+  background-color: #a3b18a;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #555;
+  margin: 20px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: #4F5D2F;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #000;
+}
+
+
+
+
+/* Add this to your CSS file */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+.pay-now-msg {
+  display: block;
+  color: red;
+  margin-top: 10px;
+}
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .checkout-container {
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .checkout-form,
+  .cart-summary {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .checkout-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .pay-now {
+    width: 100%;
+  }
+
+  .cart-item {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+  }
+}

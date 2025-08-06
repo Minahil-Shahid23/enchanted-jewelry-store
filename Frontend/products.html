@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ✅ Meta & Title -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+
+  <!-- ✅ External CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ✅ Google Fonts: Classy & clean combo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Lavishly+Yours&family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+  <!-- ✅ Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+
+<body>
+  <!-- ✅ Navigation Bar -->
+  <nav class="navbar">
+    <div class="logo">Enchanted Trinkets</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">About Me</a></li>
+      <li><a href="index.html">Shop</a></li>
+      <li><a href="index.html">Contact us</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+
+    <div class="search">
+      <input type="text" id="search-input" class="search-prod" placeholder="🔍︎ Search Product" />
+      <div class="cart-icon">
+        🛒
+        <span class="cart-count">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Section Heading -->
+  <div class="Weekly-texts-necklace">
+    <h1>Necklaces</h1>
+  </div>
+
+  <!-- ✅ Breadcrumb Navigation -->
+  <div class="breadcrumb">
+    <a href="index.html">🏠︎ Home</a>
+    <span>/</span>
+    <a href="#" id="breadcrumb-cat">Necklaces</a>
+  </div>
+
+
+
+
+
+  <!-- ✅ Filter Dropdown -->
+  <div class="filters">
+    <select id="filter-category">
+      <option value="all">Sort by Price</option>
+      <option value="necklace" id="highToLow">high to low</option>
+      <option value="earrings">low to high</option>
+      <option value="newest">Newest First</option>
+    </select>
+  </div>
+
+
+
+
+
+  <!-- ✅ Product Grid -->
+  <div class="product-grid">
+
+    <!-- ✅ Product Card 1 -->
+    <div class="product-card">
+      <a href="product.html?id=1">
+        <img src="images/necklace-img.png" alt="Necklace" class="search-prod-img">
+        <h3 class="search-prod-name">Marina Nebula</h3>
+        <p class="search-prod-price">Rs 700</p>
+      </a>
+    </div>
+
+    <!-- ✅ Product Card 2 -->
+    <div class="product-card">
+      <a href="product.html?id=2">
+        <img src="images/neckpiece-img.png" alt="Necklace" class="search-prod-img">
+        <h3 class="search-prod-name">Evergreen Charm</h3>
+        <p class="search-prod-price">Rs 750</p>
+      </a>
+    </div>
+
+    <!-- ✅ Product Cards 3–16 -->
+    <!-- Repeat same structure with updated image, name, price, and id -->
+    <div class="product-card">
+      <a href="product.html?id=3">
+        <img src="images/crimson-cascade.png" alt="Bracelet" class="search-prod-img">
+        <h3 class="search-prod-name">Crimson Cascade</h3>
+        <p class="search-prod-price">Rs 600</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=4">
+        <img src="images/blue-shines.png" alt="Ring" class="search-prod-img">
+        <h3 class="search-prod-name">Blue Shines</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=5">
+        <img src="images/daisy-chain.png" alt="Earrings" class="search-prod-img">
+        <h3 class="search-prod-name">Daisy Chain</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=6">
+        <img src="images/fairycore-dream.png" alt="Necklace" class="search-prod-img">
+        <h3 class="search-prod-name">Fairycore Dream</h3>
+        <p class="search-prod-price">Rs 700</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=7">
+        <img src="images/ivory-romance.png" alt="Bracelet" class="search-prod-img">
+        <h3 class="search-prod-name">Ivory Romance</h3>
+        <p class="search-prod-price">Rs 600</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=8">
+        <img src="images/charmie.png" alt="Pendant" class="search-prod-img">
+        <h3 class="search-prod-name">Charmie</h3>
+        <p class="search-prod-price">450</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=9">
+        <img src="images/celestial-orbit.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Celestial Orbit</h3>
+        <p class="search-prod-price">Rs 600</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=10">
+        <img src="images/starry nights.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Starry Nights</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=11">
+        <img src="images/letter.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Letter</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=12">
+        <img src="images/purrl-charm.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Purrl Charm</h3>
+        <p class="search-prod-price">Rs 600</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=13">
+        <img src="images/viva la vida.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Viva La Vida</h3>
+        <p class="search-prod-price">Rs 600</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=14">
+        <img src="images/Whimsy Wings.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Whimsy Wings</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=15">
+        <img src="images/hearts.png" alt="Anklet" class="search-prod-img">
+        <h3 class="search-prod-name">Hearty Hearts</h3>
+        <p class="search-prod-price">Rs 500</p>
+      </a>
+    </div>
+
+    <div class="product-card">
+      <a href="product.html?id=16">
+        <img src="images/strawberry-shortcake.png" alt="Necklace" class="search-prod-img">
+        <h3 class="search-prod-name">Strawberry Shortcake</h3>
+        <p class="search-prod-price">Rs 650</p>
+      </a>
+    </div>
+
+  </div>
+
+<!-- pagination -->
+  <div id="pagination-controls">
+  <button id="prev-btn">Prev</button>
+  <span id="page-number">1</span>
+  <button id="next-btn">Next</button>
+</div>
+
+
+  <!-- ✅ Footer Section -->
+  <footer class="footer">
+    <!-- About Footer -->
+    <div class="footer-section">
+      <h3>Enchanted Trinkets</h3>
+      <p>
+        Step into a world of timeless elegance — handcrafted jewelry for the
+        romantic soul.
+      </p>
+    </div>
+
+    <!-- Contact Footer -->
+    <div class="footer-section">
+      <h3>Contact Us</h3>
+      <ul>
+        <li><a href="mailto:maryyamtanveer485@gmail.com">maryyamtanveer485@gmail.com</a></li>
+        <li><a href="mailto:minahilsh3@gmail.com">minahilsh3@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <!-- Info Footer -->
+    <div class="footer-section">
+      <h3>Information</h3>
+      <ul>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Handle With Care</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Footer -->
+    <div class="footer-section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/enchantedd_trinketss" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.pinterest.com/maryyamsheikh115/" target="_blank">
+          <i class="fab fa-pinterest"></i>
+        </a>
+        <a href="https://www.tiktok.com/@enchantedd_trinketss/" target="_blank">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+      <p>© 2025 Enchanted Trinkets. All rights reserved</p>
+    </div>
+  </footer>
+
+  
+  <script src="products.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
